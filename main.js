@@ -2,10 +2,11 @@
 let numbCasual = [];
 let nUtente = [];
 let secondi = 3
+let indovinati = [];
 
 //Creo un ciclo per inserire numeri casuali nell'array (tutti numeri diversi)
 while (numbCasual.length < 5) {
-    let x = random(1, 5);
+    let x = random(1, 99);
     if (!numbCasual.includes(x)) {
         numbCasual.push(x)
     }
@@ -30,8 +31,21 @@ let cronometro = setInterval(function () {
         document.getElementById('numeri-casuali').classList.add('d-none')
         document.getElementById('titolo-numeri').classList.add('d-none')
 
-        //Funzione faccio inserire i numeri all'utente
-        nUtente = creaArray()
+        //ritardo di 1 secondo per far sparire i numeri
+        setTimeout(function () {
+
+            //Funzione faccio inserire i numeri all'utente
+            nUtente = creaArray()
+
+            document.getElementById('secondi-mancanti').classList.add('d-none')
+
+            //Funzione confornto array
+            confronto(nUtente, numbCasual)
+            document.getElementById('titolo-numeri').classList.remove('d-none')
+            document.getElementById('numeri-casuali').classList.remove('d-none')
+
+        }, 1000)
+
     }
     secondi--
 }, 1000)
@@ -52,4 +66,31 @@ function creaArray() {
         array[i] = prompt('inserisci numero')
     }
     return array
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function confronto(array1, array2) {
+    for (let i = 0; i < 5; i++) {
+
+        if (array1[i] == (array2[0])) {
+            document.getElementById('indovinati').innerHTML += `<span>${array1[i]}</span>`
+        }
+        if (array1[i] == (array2[1])) {
+            document.getElementById('indovinati').innerHTML += `<span>${array1[i]}</span>`
+
+        }
+        if (array1[i] == (array2[2])) {
+            document.getElementById('indovinati').innerHTML += `<span>${array1[i]}</span>`
+
+        }
+        if (array1[i] == (array2[3])) {
+            document.getElementById('indovinati').innerHTML += `<span>${array1[i]}</span>`
+
+        }
+        if (array1[i] == (array2[4])) {
+            document.getElementById('indovinati').innerHTML += `<span>${array1[i]}</span>`
+
+        }
+    }
 }

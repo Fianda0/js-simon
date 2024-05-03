@@ -10,7 +10,8 @@ body {
     font-family: sans-serif;
 }
 
-p span {
+p span,
+#indovinati span {
     padding: 1rem;
     font-size: 2rem;
     border: 1px solid red;
