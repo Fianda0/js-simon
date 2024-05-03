@@ -14,6 +14,24 @@ for (let i = 0; i < 5; i++) {
     document.getElementById('numeri-casuali').innerHTML += `<span>${numbCasual[i]}</span > `
 }
 
+
+let secondi = 3
+
+//Creo variabile cronometro pwr il TIMER
+let cronometro = setInterval(function () {
+
+    //inserisco i secondi a scermo
+    document.getElementById('secondi').innerText = secondi;
+
+    //Se i secondi diventano 0 allora ferma il cronometro e rimuovi i numeri
+    if (secondi == 0) {
+        clearInterval(cronometro)
+        document.getElementById('numeri-casuali').classList.add('d-none')
+        document.getElementById('titolo-numeri').classList.add('d-none')
+    }
+    secondi--
+}, 1000)
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Funzione genera numeri random
