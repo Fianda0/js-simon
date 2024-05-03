@@ -1,5 +1,7 @@
 //Array conenente numeri casuali
 let numbCasual = [];
+let nUtente = [];
+let secondi = 3
 
 //Creo un ciclo per inserire numeri casuali nell'array (tutti numeri diversi)
 while (numbCasual.length < 5) {
@@ -15,7 +17,6 @@ for (let i = 0; i < 5; i++) {
 }
 
 
-let secondi = 3
 
 //Creo variabile cronometro pwr il TIMER
 let cronometro = setInterval(function () {
@@ -28,6 +29,9 @@ let cronometro = setInterval(function () {
         clearInterval(cronometro)
         document.getElementById('numeri-casuali').classList.add('d-none')
         document.getElementById('titolo-numeri').classList.add('d-none')
+
+        //Funzione faccio inserire i numeri all'utente
+        nUtente = creaArray()
     }
     secondi--
 }, 1000)
@@ -37,4 +41,15 @@ let cronometro = setInterval(function () {
 //Funzione genera numeri random
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Funzione crea array
+function creaArray() {
+    let array = [];
+    for (let i = 0; i < 5; i++) {
+        array[i] = prompt('inserisci numero')
+    }
+    return array
 }
