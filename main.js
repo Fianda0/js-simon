@@ -8,7 +8,11 @@ while (numbCasual.length < 5) {
         numbCasual.push(x)
     }
 }
-console.log(numbCasual)
+
+//Creo un ciclo per inserire i numeri in pagina
+for (let i = 0; i < 5; i++) {
+    document.getElementById('numeri-casuali').innerHTML += `<span>${numbCasual[i]}</span > `
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
